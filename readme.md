@@ -7,7 +7,7 @@
 
 
 
-`bash`
+``bash`
 composer install
 
-`
+
