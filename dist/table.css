@@ -1,0 +1,19 @@
+table {
+
+    @apply text-left w-full max-h-full p-2 border-separate bg-gray-100;
+
+}
+
+th {
+    @apply text-base text-black/80 font-bold text-left px-2;
+}
+
+td {
+    @apply text-xs text-black/60 font-bold text-left px-2;
+
+}
+
+tr:has(td) {
+
+    @apply bg-white hover:outline outline-sky-400;
+}

@@ -1,0 +1,19 @@
+{
+    "name": "devcefas/recolha",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "devcefas",
+            "email": "devcefas@gmail.com"
+        }
+    ],
+    "require": {
+        "catfan/medoo": "^2.2",
+        "nesbot/carbon": "^3.10",
+        "dompdf/dompdf": "^0.6.2"
+    }
+}

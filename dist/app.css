@@ -1,0 +1,224 @@
+@import "tailwindcss";
+@import "./table.css";
+@import "./fonts.css";
+/*npx @tailwindcss/cli -i ./dist/app.css -o ./public/style.css --watch*/
+
+
+fieldset input {
+
+  @apply px-2 h-9 text-gray-700 outline-emerald-500  border border-gray-300 rounded-lg max-w-md;
+}
+
+fieldset select {
+
+  @apply px-2 h-9 text-gray-700 outline-emerald-500 bg-gray-100 border border-gray-300 rounded-md max-w-md;
+}
+
+fieldset label {
+  @apply capitalize opacity-60 text-black;
+}
+
+fieldset textarea {
+  @apply p-2 min-h-48 max-w-md outline-emerald-500 bg-gray-100 border border-gray-300 rounded-md;
+}
+
+button {
+  @apply cursor-pointer;
+}
+
+* {
+
+  font-family: sans-serif;
+}
+
+::-webkit-scrollbar {
+
+  appearance: none;
+  opacity: 0;
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  appearance: none;
+}
+
+@layer components {
+
+  .link {
+    @apply  text-emerald-500 underline
+  }
+
+  .btn-secondary {
+
+    @apply flex items-center gap-1 justify-center h-9 border-gray-300 border text-gray-600 rounded hover:outline outline-emerald-500 outline-offset-1 px-2 active:bg-gray-300;
+  }
+
+  .btn-destaq {
+
+    @apply flex items-center gap-1 justify-center h-9 border bg-gradient-to-b from-indigo-200 via-indigo-500 to-indigo-700 text-white rounded hover:outline outline-emerald-500 outline-offset-1 px-2 border-indigo-800 via-10% hover:to-40% active:bg-indigo-800;
+  }
+
+
+  .btn-primary {
+    @apply flex items-center gap-1 justify-center h-9 shadow-emerald-400 shadow-inner bg-emerald-500 text-white rounded hover:outline outline-emerald-500 outline-offset-1 px-2 active:bg-emerald-800;
+  }
+
+  .btn-danger {
+    @apply relative flex items-center gap-1 justify-center h-9 border bg-gradient-to-t from-red-600 via-red-500 to-red-700 text-white rounded-md hover:outline outline-emerald-500 outline-offset-1 px-2 border-red-800 via-10% hover:to-40% active:bg-red-800;
+  }
+
+  .btn-option {
+    @apply flex items-center justify-center h-10 p-2 hover:bg-gray-200 focus:outline-2 outline-emerald-500 rounded-md;
+  }
+
+  .bg-grid {
+
+    background-image: url("./img/grid.png");
+    background-repeat: repeat;
+    background-position: center;
+
+  }
+
+  .panel {
+    @apply border border-gray-300 bg-white p-4 rounded-md;
+  }
+
+  .card-app {
+
+    transition: 0.1s linear all;
+    @apply flex flex-col items-center justify-center min-w-64 min-h-72 grow bg-white rounded-md border-gray-300 border hover:shadow-md p-4 hover:scale-95;
+
+  }
+
+
+}
+
+
+.loader {
+  --color: #a5a5b0;
+  --size: 70px;
+  width: var(--size);
+  height: var(--size);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+
+.loader span {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color);
+  animation: keyframes-blink 0.6s alternate infinite linear;
+}
+
+.loader span:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+.loader span:nth-child(2) {
+  animation-delay: 200ms;
+}
+
+.loader span:nth-child(3) {
+  animation-delay: 300ms;
+}
+
+.loader span:nth-child(4) {
+  animation-delay: 400ms;
+}
+
+.loader span:nth-child(5) {
+  animation-delay: 500ms;
+}
+
+.loader span:nth-child(6) {
+  animation-delay: 600ms;
+}
+
+@keyframes keyframes-blink {
+  0% {
+    opacity: 0.3;
+    transform: scale(0.5) rotate(5deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+.animate-enter {
+  transition: 0.1s linear all;
+  animation: 0.2s ease-in-out enter-scene;
+
+}
+
+.animate-out {
+  transition: 0.1s linear all;
+  animation: 0.2s ease-in-out out-scene;
+
+}
+
+@keyframes enter-scene {
+
+  from {
+    scale: 0;
+    /* top: -45; */
+  }
+
+  to {
+    scale: 1;
+  }
+
+}
+
+@keyframes out-scene {
+
+  from {
+    display: flex;
+    scale: 1;
+    /* top: -45; */
+  }
+
+  to {
+    scale: 0;
+  }
+
+}
+
+*[data-title]::after,
+*[data-title]::before {
+
+  content: '';
+  opacity: 0;
+
+}
+
+*[data-title]:hover {
+
+  position: relative;
+
+  &::before {
+
+    transition: all linear 0.2s;
+    @apply absolute top-[105%] flex size-2 bg-black rotate-45 opacity-100;
+    content: '';
+  }
+
+  &::after {
+    transition: all linear 0.2s;
+
+    content: attr(data-title);
+
+    @apply absolute font-normal text-nowrap text-shadow-md max-w-64 text-sm bg-black text-white opacity-100 top-[110%] p-2 rounded-md;
+
+  }
+
+
+}
+
+.screen-section {
+
+  @apply h-[620px] overflow-y-auto;
+}
